@@ -165,7 +165,9 @@ class SudokuGenerator {
 
             for (let row = 0; row < 9; row++) {
                 for (let col = 0; col < 9; col++) {
-                    const tile = document.createElement('div');
+                    const tile = document.createElement('input');
+                    tile.type='text';
+                    tile.maxlength=1;
                     tile.className = 'tiles';
                     
                     // Add right border for columns 2 and 5
@@ -195,7 +197,7 @@ class SudokuGenerator {
                 const col = index % 9;
                 const value = currentBoard[row][col];
                 
-                tile.textContent = value === 0 ? '' : value;
+                tile.value = value === 0 ? '' : value;
                 
                 // Style clues vs user input
                 if (initialBoard[row][col] !== 0) {
