@@ -44,6 +44,8 @@ body {
             box-sizing: border-box;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            vertical-align: middle;
             font-size: 1.5em;
             cursor: pointer;
             background-color: white;
@@ -65,6 +67,9 @@ body {
         .clue {
             font-weight: bold;
             color: #333;
+            background-color: #ddd; 
+            pointer-events: none;   
+            color: black;
         }
 
         .user-input {
@@ -130,6 +135,7 @@ body {
 
         body.dark .tiles.clue {
             color: #bbbbbb;
+            background-color:  #66ff9960;
         }
 
         body.dark .tiles.selected {
