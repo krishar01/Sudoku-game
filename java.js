@@ -184,9 +184,11 @@ class SudokuGenerator {
                     tile.dataset.col = col;
                     
                     tile.addEventListener('click', () => selectCell(row, col));
-                    tile.addEventListener('input', (e) => {
-                            handleMobileInput(e, row, col);
-                        });
+                    if (/Mobi|Android/i.test(navigator.userAgent)) {
+                            tile.addEventListener('input', (e) => {
+                                handleMobileInput(e, row, col);
+                            });
+                        }
                     
                     gameboard.appendChild(tile);
                 }
