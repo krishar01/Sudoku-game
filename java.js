@@ -184,6 +184,9 @@ class SudokuGenerator {
                     tile.dataset.col = col;
                     
                     tile.addEventListener('click', () => selectCell(row, col));
+                    tile.addEventListener('input', (e) => {
+                            handleMobileInput(e, row, col);
+                        });
                     
                     gameboard.appendChild(tile);
                 }
@@ -373,6 +376,41 @@ class SudokuGenerator {
             localStorage.setItem("dark-mode", isDark);
             toggleBtn.textContent = isDark ? "🌞" : "🌙";
         });
+            function handleMobileInput(e, row, col) {
+    const value = e.target.value.trim();
+
+    if (initialBoard[row][col] !== 0) {
+        e.target.value = ''; // prevent editing fixed tiles
+        return;
+    }
+
+    if (!/^[1-9]$/.test(value)) {
+        e.target.value = ''; // clear if not valid digit
+        return;
+    }
+
+    const userValue = parseInt(value);
+    const correctValue = generator.solution[row][col];
+
+    if (userValue !== correctValue) {
+        errorcount++;
+        alert(`❌ Wrong! Errors: ${errorcount}/${maxerrors}`);
+        if (errorcount >= maxerrors) {
+            alert("❌ Game Over! You've made 3 mistakes.");
+            disableBoard();
+        }
+    } else {
+        currentBoard[row][col] = userValue;
+        updateBoard();
+
+        if (checkWin()) {
+            stopTimer();
+            alert(`🎉 Congratulations! You solved it in 
+                ${document.getElementById('timer').textContent.split(' ')[1]}`);
+            newGame();
+        }
+    }
+}
 
 
 
