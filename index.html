@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku game</title>
+    <link rel="stylesheet"  href="css.css">
+    
+</head>
+<body>
+    
+   <h1><div class="puzzle_emoji">🧩</div> Sudoku Game</h1>
+   <div class="selector_container">
+        <label>Choose Difficulty:</label>
+        <select class="select" id="Difficulty">
+            <option value="45">Easy(45 clues)</option>
+            <option value="35" >Medium(35 clues)</option>
+            <option value="25">Hard(25 clues)</option>
+            
+        </select>
+        <button id="toggle-dark" class="toggle-btn">🌙</button>
+
+   </div>
+    <div class="controls">
+        <button onclick="newGame()">New Game</button>
+        <button onclick="giveHint()">Hint</button>
+        <button onclick="clearBoard()">Clear</button><br>
+        
+    </div>
+    
+    <div id="timer">Time: 00:00</div>
+    <div class="gameboard" id="gameboard"></div>
+    
+
+    <script src="java.js"></script>
+</body>
+</html>

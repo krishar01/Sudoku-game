@@ -1,0 +1,147 @@
+body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .puzzle_emoji{
+            display: inline-block;
+            animation: float 2s ease-in-out infinite;
+            position: relative;
+        }
+        @keyframes float {
+            0% {transform: translatey(0);}
+            50% {transform: translatey(-10px);}
+            100% {transform: translatey(0);}
+        }
+        .selector_container{
+            display: inline-block;
+            
+        }
+        .select{
+            border-radius: 5px;
+            width: 150px;
+            height: 20px;
+            text-align: center;
+            background-color: rgba(42, 165, 42, 0.261);
+            cursor: pointer;
+            
+        }
+
+        .gameboard {
+            display: flex;
+            flex-wrap: wrap;
+            width: 90vmin;
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+
+        .tiles {
+            display: flex;
+            width: 10vmin;
+            height: 10vmin;
+            border: 1px solid gray;
+            box-sizing: border-box;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            background-color: white;
+            transition: background-color 0.2s;
+        }
+
+        .right_border {
+            border-right: 2px solid black;
+        }
+
+        .bottom_border {
+            border-bottom: 2px solid black;
+        }
+
+        .selected {
+            background-color: rgba(0, 0, 255, 0.2);
+        }
+
+        .clue {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .user-input {
+            color: #0066cc;
+        }
+
+        .controls {
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: box-shadow 0.15s;
+            
+        }
+
+        button:hover {
+            background-color: #45a049;
+            box-shadow: 2px 2px 5px rgb(0, 128, 0,0.5);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .disabled {
+        pointer-events: none;
+        opacity: 0.5;
+        }
+        body.dark {
+            background-color: #121212;
+            color: white;
+        }
+        body.dark h1{
+            color: white;
+        }
+        body.dark select{
+            color: white;
+        }
+        body.dark .right_border {
+            border-right: 2px solid rgba(255, 255, 255, 0.596) !important;
+        }
+
+        body.dark .bottom_border {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.596) !important;
+        }
+        body.dark .gameboard{
+            border: 2px solid rgba(255, 255, 255, 0.596);
+        }
+
+        body.dark .tiles {
+            background-color: #1e1e1e;
+            color: white;
+            border-color: #333;
+        }
+
+        body.dark .tiles.clue {
+            color: #bbbbbb;
+        }
+
+        body.dark .tiles.selected {
+            background-color: #333333;
+        }
+
+        body.dark .tiles.user-input {
+            color: #66ff99;
+        }
+
+        body.dark .toggle-btn {
+            background-color: #333;
+            color: white;
+        }
+
